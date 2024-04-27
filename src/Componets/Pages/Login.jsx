@@ -46,7 +46,7 @@ const Login = () => {
         console.log(result.user);
         navigate( location?.state?  location.state :'/')
        
-        toast.success('user Login Successfully with Github') 
+        toast.success('user Login Successfully with Google') 
       })
       .catch((error) => toast.error(error));
      

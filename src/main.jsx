@@ -26,10 +26,12 @@ const router = createBrowserRouter([
       {
         path:"/",
         element:<Home></Home>,
+        loader:()=>fetch('http://localhost:5000/crafts')
       },
       {
         path:"/allItem",
-        element:<AllItem></AllItem>
+        element:<AllItem></AllItem>,
+        loader:()=>fetch('http://localhost:5000/crafts')
 
       },
       {
