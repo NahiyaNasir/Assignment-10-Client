@@ -1,10 +1,9 @@
-import {  NavLink } from "react-router-dom";
-
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
-    return (
-        <div>
-             <div className="navbar  fixed z-10 shadow-lg min-h-">
+  return (
+    <div>
+      <div className="navbar  fixed z-10 shadow-lg min-h-">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -30,7 +29,9 @@ const Navbar = () => {
               <NavLink
                 to="/"
                 className={({ isActive }) =>
-                  isActive ? " border-solid border-2  border-teal-400 " : "font-bold"
+                  isActive
+                    ? " border-solid border-2  border-teal-400 "
+                    : "font-bold"
                 }
               >
                 Home
@@ -38,34 +39,39 @@ const Navbar = () => {
               <NavLink
                 to="/allItem"
                 className={({ isActive }) =>
-                  isActive ? "  border-solid border-2  border-teal-400 " : "font-bold"
+                  isActive
+                    ? "  border-solid border-2  border-teal-400 "
+                    : "font-bold"
                 }
               >
-              All Arts & Crafts Item
+                All Arts & Crafts Item
               </NavLink>
               <NavLink
-              to="/addItem"
-              className={({ isActive }) =>
-                isActive
-                  ? '  border-solid border-2  border-teal-400 '
-                  : "font-bold  "
-              }
-            >
-              Add Crafts Item
-            </NavLink>
+                to="/addItem"
+                className={({ isActive }) =>
+                  isActive
+                    ? "  border-solid border-2  border-teal-400 "
+                    : "font-bold  "
+                }
+              >
+                Add Crafts Item
+              </NavLink>
               <NavLink
-              to="/myList"
-              className={({ isActive }) =>
-                isActive
-                  ? '  border-solid border-2  border-teal-400 '
-                  : "font-bold  "
-              }
-            >
-             My Arts& Crafts List
-            </NavLink>
+                to="/myList"
+                className={({ isActive }) =>
+                  isActive
+                    ? "  border-solid border-2  border-teal-400 "
+                    : "font-bold  "
+                }
+              >
+                My Arts& Crafts List
+              </NavLink>
             </ul>
           </div>
-          <a className=" text-xl"><span className=" text-sky-600"> Handmade</span> <span className="text-gray-600">Treasures</span> </a>
+          <a className=" text-xl">
+            <span className=" text-sky-600"> Handmade</span>{" "}
+            <span className="text-gray-600">Treasures</span>{" "}
+          </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 flex gap-4">
@@ -83,7 +89,7 @@ const Navbar = () => {
               to="/allItem"
               className={({ isActive }) =>
                 isActive
-                  ? '    border-solid border-2 p-2 border-teal-400 '
+                  ? "    border-solid border-2 p-2 border-teal-400 "
                   : "font-bold  p-2"
               }
             >
@@ -93,49 +99,37 @@ const Navbar = () => {
               to="/addItem"
               className={({ isActive }) =>
                 isActive
-                  ? ' border-solid border-2  p-2 border-teal-400'
+                  ? " border-solid border-2  p-2 border-teal-400"
                   : "font-bold  p-2"
               }
             >
-             Add Crafts  Items
+              Add Crafts Items
             </NavLink>
             <NavLink
               to="/myList"
               className={({ isActive }) =>
                 isActive
-                  ? '  border-solid border-2 p-2 border-teal-400 '
+                  ? "  border-solid border-2 p-2 border-teal-400 "
                   : "font-bold  p-2 "
               }
             >
-             My Arts& Crafts List
+              My Arts& Crafts List
             </NavLink>
           </ul>
         </div>
-        {/* {currentUser ? (
-          <div className="navbar-end gap-3">
-       
-                <button className="btn btn-accent"> Sign In</button>
-                <button className="btn btn-accent"> Sign Up</button>
 
-           
-            </div>
-</div>
-            <button className="btn bg-[#59C6D2]" onClick={handelSignOut}>
-              Log out
-            </button>
-          </div>
-        {/* ) : (
-          <div className="navbar-end gap-3">
-            <Link to="/login">
-              <button className="btn bg-[#59C6D2]">Login</button>
-            </Link>
-          </div>
-        )} */}
-      </div> 
-            
-            
+        <div className="navbar-end gap-3">
+          <Link to="/login">
+            {" "}
+            <button className="btn btn-accent"> Sign In</button>
+          </Link>
+          <Link to='/register'>
+          <button className="btn btn-accent"> Sign Up</button>
+          </Link>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Navbar;
