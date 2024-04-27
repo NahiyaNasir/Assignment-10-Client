@@ -3,7 +3,9 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
+import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const { signIn, signInWithGoogle, signInWithGithub } =
@@ -33,7 +35,7 @@ const Login = () => {
      
       })
       .catch((error) => {
-        console.log(error);
+       toast.error(error);
         
       });
     
@@ -43,25 +45,27 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         navigate( location?.state?  location.state :'/')
-        alert('User Login Successfully With Google')
+       
+        toast.success('user Login Successfully with Github') 
       })
-      .catch((error) => alert(error));
+      .catch((error) => toast.error(error));
      
   };
   const handelGithubSignIn = () => {
     signInWithGithub()
       .then((result) =>{console.log(result.user);
         navigate( location?.state?  location.state :'/')
-      alert('user Login Successfully with Github')} )
-      .catch((error) => console.error(error));
+        toast.success('user Login Successfully with Github')                 } )
+  
+      .catch((error) =>toast.error(error));
      
   };
     return (
         <div>
              <div>
-      {/* <Helmet>
+      <Helmet>
         <title>Login page</title>
-      </Helmet> */}
+      </Helmet>
       <div className=" flex items-center justify-center my-6">
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 border-2 border-teal-500">
           <form className="card-body" onSubmit={handleLogin}>

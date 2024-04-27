@@ -1,6 +1,16 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "./AuthProvider";
 
 const Navbar = () => {
+  const { logOut, user } = useContext(AuthContext);
+  const handelSignOut = () => {
+    logOut()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => console.error(error));
+  };
   return (
     <div>
       <div className="navbar  fixed z-10 shadow-lg min-h-">
@@ -118,7 +128,60 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div className="navbar-end gap-3">
+        {user ? (
+          <div className=" gap-6 navbar-end">
+       
+            
+            <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+            <div className="avatar online">
+              <div className="w-10 rounded-full">
+              <img src={user.photoURL || " URl NOt Found"} />
+              
+              </div>
+            </div>
+           
+</div>
+{/* <div className="dropdown dropdown-hover">
+  <div tabIndex={0} role="button" className="btn m-1"><img src={user.photoURl} alt="" /></div>
+  <ul tabIndex={0} className="dropdown-content z-50 menu p-2 shadow bg-base-100 rounded-box w-52">
+    <li><a>Item 1</a></li>
+    <li><a>Item 2</a></li>
+  </ul>
+</div> */}
+
+<button className="btn bg-[#59C6D2]" onClick={handelSignOut}>
+              Log out
+            </button>
+          </div>
+        ) : (
+          <div className="navbar-end gap-3">
+            <Link to="/login">
+             
+              <button className="btn btn-accent"> Sign In</button>
+            </Link>
+            <Link to='/register'>
+          <button className="btn btn-accent"> Sign Up</button>
+          </Link>
+          </div>
+        )}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {/* <div className="navbar-end gap-3">
           <Link to="/login">
             {" "}
             <button className="btn btn-accent"> Sign In</button>
@@ -126,7 +189,7 @@ const Navbar = () => {
           <Link to='/register'>
           <button className="btn btn-accent"> Sign Up</button>
           </Link>
-        </div>
+        </div> */}
       </div>
     </div>
   );

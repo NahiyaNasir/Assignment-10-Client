@@ -1,7 +1,10 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider";
-
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
+import 'react-toastify/dist/ReactToastify.css';
 const Register = () => {
   const { createUser, updateUser } = useContext(AuthContext);
   const [registerSuccess, setSuccess] = useState("");
@@ -32,13 +35,23 @@ const Register = () => {
       .then(() => {
         updateUser(name, photoUrl).then(() => {
           // window.location.href = "/";
-          alert("User Created Successfully");
+         
+          Swal.fire({
+            title: 'Success!',
+            text: 'User Created Successfully',
+            icon: 'success',
+            confirmButtonText: 'Okay'
+          })
+         
         });
       })
-      .catch((error) => alert(error));
+      .catch((error) =>toast.error(error));
   };
   return (
     <div>
+       <Helmet>
+       <title> Register Page</title>
+       </Helmet>
       <div className=" flex items-center justify-center my-3">
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100  border-2 border-blue-800">
           <form className="card-body" onSubmit={handleRegister}>

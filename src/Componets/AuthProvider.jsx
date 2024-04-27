@@ -3,6 +3,8 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth/cordova";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebaseconfig";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
@@ -31,7 +33,7 @@ const AuthProvider = ({children}) => {
   const logOut = () => {
     setaLoading(true);
     return signOut(auth)
-      .then(alert("Signed out"))
+      .then(toast.success(" User Sign Out"))
       .catch((error) => console.log(error));
   };
   const signIn = (email, password) => {
