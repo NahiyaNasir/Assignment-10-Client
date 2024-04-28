@@ -19,10 +19,22 @@ const MyList = () => {
     }
   }, [setItem, user?.email]);
   return (
+    
     <div>
+   <div className=" mt-7">
+   <select className="select select-bordered w-full max-w-xs">
+  <option disabled selected>Customization</option>
+  <option value="yes">Yes</option>
+  <option value="no">No</option>
+</select>
+   </div>
+
+
+      <div className=" grid  lg:grid-cols-3 mt-6 mx-auto  grid-cols-1 max-w-6xl gap-10">
       {item.map((i) => (
         <MyListCard key={i._id} i={i}></MyListCard>
       ))}
+    </div>
     </div>
   );
 };

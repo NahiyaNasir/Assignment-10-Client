@@ -18,6 +18,7 @@ import AuthProvider from './Componets/AuthProvider.jsx';
 import { ToastContainer } from 'react-toastify';
 import { HelmetProvider } from 'react-helmet-async';
 import ProtectedRoute from './Componets/ProtectedRoute.jsx';
+import UpdateItems from './Componets/UpdateItems.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
       {
         path:"/allItem",
         element:<AllItem></AllItem>,
-        loader:()=>fetch('http://localhost:5000/crafts')
+        loader:()=>fetch('http://localhost:5000/allItem')
 
       },
       {
@@ -45,6 +46,13 @@ const router = createBrowserRouter([
         element:<ProtectedRoute><MyList></MyList></ProtectedRoute>
 
       },
+      {
+        path:"/update/:id",
+        element:<ProtectedRoute><UpdateItems></UpdateItems></ProtectedRoute>,
+        loader:({params})=>fetch(`http://localhost:5000/crafts/${params.id}`)
+
+      },
+
       {
         path:"/login",
         element:<Login></Login>

@@ -1,94 +1,79 @@
-import { useContext } from "react";
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
-import { AuthContext } from "../AuthProvider";
 
-const AddItem = () => {
-  const { user } = useContext(AuthContext);
-  const handleAddItem = (e) => {
-    e.preventDefault();
-    const from = e.target;
-    const name = from.name.value;
 
-    const email = from.email.value;
-    const item_name = from.item_name.value;
-    const sub_name = from.sub_name.value;
-    const desc = from.desc.value;
-    const price = from.price.value;
-    const img = from.img.value;
-    const ratting = from.ratting.value;
-    const time = from.time.value;
-    const status = from.status.value;
-    const custom = from.custom.value;
-    const newItem = {
-      name,
-      img,
-      ratting,
-      custom,
-      status,
-      time,
-      price,
-      desc,
-      item_name,
-      sub_name,
-      email,
-    };
-    console.log(newItem);
-    fetch("http://localhost:5000/crafts", {
-      method: "post",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newItem),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
-          Swal.fire({
-            title: "Success!",
-            text: "Added Item Successfully",
-            icon: "success",
-            confirmButtonText: "Okay",
+const UpdateItems = () => {
+    const update=useLoaderData()
+    console.log(update);
+    const { 
+        img,
+        ratting,
+        custom,
+        status,
+        time,
+        price,
+        desc,
+        item_name,
+        sub_name,
+        _id
+        }=update
+    const handleUpdate = (e) => {
+        e.preventDefault();
+        const from = e.target;
+                     const item_name = from.item_name.value;
+        const sub_name = from.sub_name.value;
+        const desc = from.desc.value;
+        const price = from.price.value;
+        const img = from.img.value;
+        const ratting = from.ratting.value;
+        const time = from.time.value;
+        const status = from.status.value;
+        const custom = from.custom.value;
+        const updateItem = {
+        
+          img,
+          ratting,
+          custom,
+          status,
+          time,
+          price,
+          desc,
+          item_name,
+          sub_name,
+        
+        };
+        console.log(updateItem);
+        fetch(`http://localhost:5000/update/${_id}`, {
+          method: "put",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(updateItem),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.modifiedCount>0) {
+              Swal.fire({
+                title: "Success!",
+                text: "Update Item Successfully",
+                icon: "success",
+                confirmButtonText: "Okay",
+              });
+            }
           });
-        }
-      });
-  };
-  return (
-    <div>
-      <div className=" bg-[#F4F3F0] p-24 my-6 mx-auto font-mono">
+      };
+    return (
+        <div>
+            <div className=" bg-[#F4F3F0] p-24 my-6 mx-auto font-mono">
         <h1 className=" text-center font-sans text-6xl mb-5">
-          Add Arts & Crafts Items
+           Update Item
         </h1>
 
-        <form onSubmit={handleAddItem}>
+        <form onSubmit={handleUpdate}>
           {/*  from row 1 */}
           <div className=" mb-8 md:flex">
-            <label className="form-control md:w-1/2 mr-4">
-              <div className="label">
-                <span className="label-text">UserName</span>
-              </div>
-              <input
-                type="text"
-                placeholder="UserName"
-                name="name"
-                defaultValue={user.displayName}
-                readOnly
-                className="input input-bordered w-full "
-              />
-            </label>
-            <label className="form-control md:w-1/2 mr-4">
-              <div className="label">
-                <span className="label-text">User E-mail</span>
-              </div>
-              <input
-                type="text"
-                placeholder="User E-mail"
-                readOnly
-                name="email"
-                defaultValue={user.email}
-                className="input input-bordered w-full "
-              />
-            </label>
+           
             {/* from row 2 */}
           </div>
           <div className=" md:flex ">
@@ -99,6 +84,7 @@ const AddItem = () => {
               <input
                 type="text"
                 placeholder="image"
+             defaultValue={img}
                 name="img"
                 className="input input-bordered w-full "
               />
@@ -110,6 +96,7 @@ const AddItem = () => {
               <input
                 type="text"
                 placeholder="Item Name"
+                defaultValue={item_name}
                 name="item_name"
                 className="input input-bordered w-full "
               />
@@ -124,6 +111,7 @@ const AddItem = () => {
               <select
                 className="select select-bordered w-full  "
                 name="sub_name"
+                defaultValue={sub_name}
               >
                 <option value="subcategory Names">Subcategory Names</option>
                 <option value="sculp"> Sculptures</option>
@@ -150,6 +138,7 @@ const AddItem = () => {
                 type="text"
                 placeholder="Short Description"
                 name="desc"
+                defaultValue={desc}
                 className="input input-bordered w-full "
               />
             </label>
@@ -163,6 +152,7 @@ const AddItem = () => {
                 type="number"
                 placeholder="Price"
                 name="price"
+                defaultValue={price}
                 className="input input-bordered w-full "
               />
             </label>
@@ -174,6 +164,7 @@ const AddItem = () => {
                 type="text"
                 placeholder="Ratting"
                 name="ratting"
+                defaultValue={ratting}
                 className="input input-bordered w-full "
               />
             </label>
@@ -189,10 +180,11 @@ const AddItem = () => {
                 placeholder="Customization"
                 name="custom"
                 className="input input-bordered w-full " */}
-              <select className="select select-bordered w-full  " name="custom">
+              <select className="select select-bordered w-full  " name="custom"
+              defaultValue={custom}>
                 <option value="Want to customize"> Want to customize?</option>
-                <option value="yes"> Yes</option>
-                <option value="no"> No</option>
+                <option value="yes"defaultValue={custom}> Yes</option>
+                <option value="no" defaultValue={custom}> No</option>
               </select>
             </label>
             <label className="form-control md:w-1/2 mr-4">
@@ -205,11 +197,12 @@ const AddItem = () => {
                 name="time"
                 className="input input-bordered w-full "
               /> */}
-              <select className="select select-bordered w-full  " name="time">
+              <select className="select select-bordered w-full  " name="time"
+              defaultValue={time}>
                 <option value="Processing Time">Processing Time </option>
-                <option value="1 weak"> 1 weak</option>
-                <option value=" 6 week">6 week </option>
-                <option value=" 1 year"> 1 year</option>
+                <option value="1 weak"defaultValue={time}> 1 weak</option>
+                <option value=" 6 week"defaultValue={time}>6 week </option>
+                <option value=" 1 year"defaultValue={time}> 1 year</option>
               </select>
             </label>
             <label className="form-control md:w-1/2 mr-4">
@@ -221,21 +214,22 @@ const AddItem = () => {
                 placeholder="Stock Status"
                 name="status"
                 className="input input-bordered w-full "
-              /> */} <select className="select select-bordered w-full  " name="status">
-                <option value="Stock Status"> Stock Status</option>
-                <option value="In stock"> In stock</option>
-                <option value="  made to  order"> Made to Order </option>
+              /> */} <select className="select select-bordered w-full  " name="status"
+              defaultValue={status}>
+                <option value="Stock Status"defaultValue={status}> Stock Status</option>
+                <option value="In stock "defaultValue={status}> In stock</option>
+                <option value="  made to  order"defaultValue={status}> Made to Order </option>
                
               </select>
 
             </label>
           </div>
 
-          <input type="submit" value="Add " className="btn btn-block" />
+          <input type="submit" value=" Update " className="btn btn-block btn-success" />
         </form>
       </div>
-    </div>
-  );
+        </div>
+    );
 };
 
-export default AddItem;
+export default UpdateItems;
