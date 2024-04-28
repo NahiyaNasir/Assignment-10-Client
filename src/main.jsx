@@ -17,6 +17,7 @@ import Register from './Componets/Pages/Register.jsx';
 import AuthProvider from './Componets/AuthProvider.jsx';
 import { ToastContainer } from 'react-toastify';
 import { HelmetProvider } from 'react-helmet-async';
+import ProtectedRoute from './Componets/ProtectedRoute.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,12 +37,12 @@ const router = createBrowserRouter([
       },
       {
         path:"/addItem",
-        element:<AddItem></AddItem>
+        element:<ProtectedRoute><AddItem></AddItem></ProtectedRoute>
 
       },
       {
         path:"/myList",
-        element:<MyList></MyList>
+        element:<ProtectedRoute><MyList></MyList></ProtectedRoute>
 
       },
       {
