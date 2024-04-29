@@ -3,6 +3,7 @@ import Banner from "./Pages/Banner";
 import CraftsCard from "./CraftsCard";
 import { Typewriter } from 'react-simple-typewriter'
 import Review from "./Pages/Review";
+import Section from "./Section";
 
 const Home = () => {
     const loadCrafts=useLoaderData()
@@ -35,6 +36,9 @@ const Home = () => {
           </div>
         <div className="my-7">
         <Review></Review>
+        </div>
+        <div className=" my-7">
+          <Section></Section>
         </div>
         </div>
     );
