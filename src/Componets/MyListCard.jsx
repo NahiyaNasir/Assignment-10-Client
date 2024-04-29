@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 
-const MyListCard = ({ i }) => {
+const MyListCard = ({ i ,setItem}) => {
   // console.log(i);
   const {
     img,
@@ -43,6 +43,12 @@ const MyListCard = ({ i }) => {
                 icon: "success",
               });
             }
+            fetch(`http://localhost:5000/myList`)
+            .then(res=>res.json())
+            .then(data=>{
+              setItem(data)
+            })
+           
           });
       }
     });

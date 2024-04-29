@@ -7,6 +7,7 @@ const MyList = () => {
   console.log(user);
   // eslint-disable-next-line no-unused-vars
   const [item, setItem ]= useState([]);
+  
 
   useEffect(() => {
     if(user?.email){
@@ -32,7 +33,11 @@ const MyList = () => {
 
       <div className=" grid  lg:grid-cols-3 mt-6 mx-auto  grid-cols-1 max-w-6xl gap-10">
       {item.map((i) => (
-        <MyListCard key={i._id} i={i}></MyListCard>
+        <MyListCard key={i._id} i={i}
+
+      
+        setItem={setItem}
+        ></MyListCard>
       ))}
     </div>
     </div>

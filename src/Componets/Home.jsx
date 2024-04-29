@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import Banner from "./Pages/Banner";
 
 
 const Home = () => {
@@ -6,7 +7,7 @@ const Home = () => {
     console.log(loadCrafts);
     return (
         <div>
-          
+          <Banner></Banner>
         </div>
     );
 };
