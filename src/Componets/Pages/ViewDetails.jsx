@@ -11,16 +11,19 @@ const ViewDetails = () => {
     return (
         <div className=" mt-6 p-5">
             <div>
-                <h1 className="border  p-2 border-l-blue-900"> Details</h1>
+                <h1 className="border  p-2 border-red-900 text-center font-extrabold"> Details</h1>
             </div>
-            <div className="card lg:card-side bg-base-100 shadow-xl">
-  <figure><img src="https://daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg" alt="Album"/></figure>
-  <div className="card-body">
-    <h2 className="card-title">New album is released!</h2>
-    <p>Click the button to listen on Spotiwhy app.</p>
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">Listen</button>
-    </div>
+            <div className="card lg:card-side bg-base-100 shadow-xl mt-6 my-7">
+  <figure><img src={newDetails.img} alt="Album"/></figure>
+  <div className="card-body justify-center">
+    <h2 className="card-title text-cyan-500">{newDetails.item_name}</h2>
+   <div>
+   <p className=" font-mono text-xl text-orange-300">  Description :{newDetails.desc}</p> <br />
+    <p className=" font-mono text-xl text-orange-300">  Stock :{newDetails.status}</p> <br />
+    <p className=" font-mono text-xl text-orange-300">  Proceeding Time :{newDetails.time}</p>
+    <p className=" font-mono text-xl text-orange-300">  Customization :{newDetails.custom}</p>
+   
+   </div>
   </div>
 </div>
            

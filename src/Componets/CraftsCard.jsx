@@ -6,9 +6,8 @@ const CraftsCard = ({card}) => {
      const {
       img,
       ratting,
-      custom,
-      status,
-      time,
+     
+   
       price,
       _id,
       item_name,
@@ -23,13 +22,10 @@ const CraftsCard = ({card}) => {
     <h2 className="card-title">{sub_name}</h2>
    <div className=" flex justify-between">
    <p className="font-bold">${price}</p>
-    <p>{status}</p>
-   </div>
    <p>{ratting}</p>
-  <div className=" flex justify-between">
-  <p>For Customization:{custom}</p>
-   <p>{time}</p>
-  </div>
+   </div>
+   
+ 
     <div className="card-actions justify-end">
      <Link to={`/details/${_id}`}>
      <button className="btn btn-info"> View Details</button>
