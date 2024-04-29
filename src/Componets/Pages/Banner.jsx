@@ -3,10 +3,14 @@
 const Banner = () => {
     return (
         <div>
-            <div className="carousel w-full">
+            <div className="carousel w-full mt-6">
   <div id="slide1" className="carousel-item relative w-full">
+       <div>
+        <p> gffh
+       <img src="https://i.ibb.co/SdfLSjM/neven-krcmarek-V4-EOZj7g1gw-unsplash.jpg" className="w-full"  />
+ </p>
+       </div>
  
-  <img src="https://i.ibb.co/SdfLSjM/neven-krcmarek-V4-EOZj7g1gw-unsplash.jpg" className="w-full" />
  
   
   

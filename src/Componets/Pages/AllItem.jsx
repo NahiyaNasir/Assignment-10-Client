@@ -31,7 +31,7 @@ const AllItem = () => {
             <td>{ac.custom}</td>
             <td>{ac.status}</td>
              <Link>
-             <button className=" btn">view details</button>
+             <button className=" btn bg-blue-400">view details</button>
              </Link>
           </tr>
         )

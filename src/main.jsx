@@ -19,6 +19,7 @@ import { ToastContainer } from 'react-toastify';
 import { HelmetProvider } from 'react-helmet-async';
 import ProtectedRoute from './Componets/ProtectedRoute.jsx';
 import UpdateItems from './Componets/UpdateItems.jsx';
+import ViewDetails from './Componets/Pages/ViewDetails.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,6 +30,12 @@ const router = createBrowserRouter([
         path:"/",
         element:<Home></Home>,
         loader:()=>fetch('http://localhost:5000/crafts')
+      },
+      {
+        path:"/details/:id",
+        element:<ProtectedRoute><ViewDetails></ViewDetails>,</ProtectedRoute>,
+        loader:()=>fetch("http://localhost:5000/crafts")
+
       },
       {
         path:"/allItem",
