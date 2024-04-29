@@ -20,6 +20,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import ProtectedRoute from './Componets/ProtectedRoute.jsx';
 import UpdateItems from './Componets/UpdateItems.jsx';
 import ViewDetails from './Componets/Pages/ViewDetails.jsx';
+import AllDetails from './Componets/Pages/AllDetails.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,6 +41,12 @@ const router = createBrowserRouter([
       {
         path:"/allItem",
         element:<AllItem></AllItem>,
+        loader:()=>fetch('http://localhost:5000/allItem')
+
+      },
+      {
+        path:"/allDetails/:id",
+        element:<ProtectedRoute><AllDetails></AllDetails></ProtectedRoute>,
         loader:()=>fetch('http://localhost:5000/allItem')
 
       },

@@ -3,9 +3,12 @@ import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
+import { AuthContext } from "./AuthProvider";
+import { useContext } from "react";
 
 const MyListCard = ({ i ,setItem}) => {
   // console.log(i);
+  const { user } = useContext(AuthContext);
   const {
     img,
     ratting,
@@ -42,12 +45,13 @@ const MyListCard = ({ i ,setItem}) => {
                 text: "Your file has been deleted.",
                 icon: "success",
               });
+              fetch(`http://localhost:5000/myList-from-email/${user?.email}`)
+              .then(res=>res.json())
+              .then(data=>{
+                setItem(data)
+              })
             }
-            fetch(`http://localhost:5000/myList`)
-            .then(res=>res.json())
-            .then(data=>{
-              setItem(data)
-            })
+           
            
           });
       }
@@ -67,7 +71,13 @@ const MyListCard = ({ i ,setItem}) => {
             <p className=" font-mono">${price}</p>
             <p className="font-sans"> Processing Time:{time}</p>
           </div>
-          <p className="font-bold ">{ratting}</p>
+          <p className="font-bold "><div className="rating">
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+</div>{ratting}</p>
           <p className="font-bold "> For Customization:{custom}</p>
           <p className="font-bold ">{status}</p>
           <div className="card-actions justify-between">

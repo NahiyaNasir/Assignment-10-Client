@@ -6,7 +6,7 @@ const Banner = () => {
             <div className="carousel w-full mt-6">
   <div id="slide1" className="carousel-item relative w-full">
        <div>
-        <p> gffh
+        <p> 
        <img src="https://i.ibb.co/SdfLSjM/neven-krcmarek-V4-EOZj7g1gw-unsplash.jpg" className="w-full"  />
  </p>
        </div>

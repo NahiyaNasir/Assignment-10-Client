@@ -6,23 +6,27 @@ const CraftsCard = ({card}) => {
      const {
       img,
       ratting,
-     
-   
-      price,
+              price,
       _id,
       item_name,
       sub_name,
     }=card
     return (
-        <div>
-            <div className="card w-96 glass">
-  <figure><img src={img}alt="car!"/></figure>
+        <div className="ml-10">
+            <div className="card w-96 glass ">
+  <figure><img src={img}alt="car!" className="h-[400px] p-2"/></figure>
   <div className="card-body">
     <h2 className="card-title">{item_name}</h2>
     <h2 className="card-title">{sub_name}</h2>
    <div className=" flex justify-between">
-   <p className="font-bold">${price}</p>
-   <p>{ratting}</p>
+   <p className="font-bold ">${price}</p>
+   <p className="text-xl"><div className="rating ">
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+</div>{ratting}</p>
    </div>
    
  
