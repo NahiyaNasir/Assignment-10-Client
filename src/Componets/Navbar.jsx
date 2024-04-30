@@ -180,7 +180,9 @@ const Navbar = () => {
             </svg>
           </label>
         </div>
-
+      
+       
+      
         {user ? (
           <div className=" gap-6 navbar-end">
             <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
@@ -189,15 +191,9 @@ const Navbar = () => {
                   <img src={user.photoURL || " URl NOt Found"} />
                 </div>
               </div>
-              {/* theme control */}
+            
             </div>
-            {/* <div className="dropdown dropdown-hover">
-  <div tabIndex={0} role="button" className="btn m-1"><img src={user.photoURl} alt="" /></div>
-  <ul tabIndex={0} className="dropdown-content z-50 menu p-2 shadow bg-base-100 rounded-box w-52">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
-</div> */}
+           
 
             <button className="btn bg-[#59C6D2]" onClick={handelSignOut}>
               Log out
@@ -213,6 +209,8 @@ const Navbar = () => {
             </Link>
           </div>
         )}
+       
+       
 
         {/* <div className="navbar-end gap-3">
           <Link to="/login">

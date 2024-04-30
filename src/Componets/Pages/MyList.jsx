@@ -19,11 +19,15 @@ const MyList = () => {
       });
     }
   }, [setItem, user?.email]);
+  const handleFilter=(value)=>{
+    console.log(value);
+
+  }
   return (
     
     <div>
    <div className=" mt-7">
-   <select className="select select-bordered w-full max-w-xs">
+   <select className="select select-bordered w-full max-w-xs" onChange={(e)=>handleFilter(e.target.value)}>
   <option disabled selected>Customization</option>
   <option value="yes">Yes</option>
   <option value="no">No</option>

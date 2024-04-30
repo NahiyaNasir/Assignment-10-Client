@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { Fade } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 
 
@@ -13,6 +14,7 @@ const CraftsCard = ({card}) => {
     }=card
     return (
         <div className="ml-10">
+          <Fade direction="left" triggerOnce="true">
             <div className="card w-96 glass ">
   <figure><img src={img}alt="car!" className="h-[400px] p-2"/></figure>
   <div className="card-body">
@@ -37,6 +39,7 @@ const CraftsCard = ({card}) => {
     </div>
   </div>
 </div>
+</Fade>
         </div>
     );
 };
