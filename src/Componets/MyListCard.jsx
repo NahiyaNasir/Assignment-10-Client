@@ -33,7 +33,7 @@ const MyListCard = ({ i ,setItem}) => {
     }).then((result) => {
       if (result.isConfirmed) {
        
-        fetch(`http://localhost:5000/myList/${_id}`, {
+        fetch(`https://assigment-10-server-rho.vercel.app/myList/${_id}`, {
           method: "delete",
         })
           .then((res) => res.json())
@@ -45,7 +45,7 @@ const MyListCard = ({ i ,setItem}) => {
                 text: "Your file has been deleted.",
                 icon: "success",
               });
-              fetch(`http://localhost:5000/myList-from-email/${user?.email}`)
+              fetch(`https://assigment-10-server-rho.vercel.app/myList-from-email/${user?.email}`)
               .then(res=>res.json())
               .then(data=>{
                 setItem(data)

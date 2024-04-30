@@ -11,7 +11,7 @@ const MyList = () => {
 
   useEffect(() => {
     if(user?.email){
-      fetch(`http://localhost:5000/myList-from-email/${user?.email}`)
+      fetch(`https://assigment-10-server-rho.vercel.app/myList-from-email/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

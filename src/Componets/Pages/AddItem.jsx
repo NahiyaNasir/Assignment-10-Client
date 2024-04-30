@@ -33,7 +33,7 @@ const AddItem = () => {
       email,
     };
     console.log(newItem);
-    fetch("http://localhost:5000/crafts", {
+    fetch("https://assigment-10-server-rho.vercel.app/crafts", {
       method: "post",
       headers: {
         "content-type": "application/json",
@@ -56,7 +56,7 @@ const AddItem = () => {
   return (
     <div>
       <div className=" bg-[#F4F3F0] p-24 my-6 mx-auto font-mono">
-        <h1 className=" text-center font-sans text-6xl mb-5">
+        <h1 className=" text-center font-sans text-6xl mb-5 text-gray-300">
           Add Arts & Crafts Items
         </h1>
 

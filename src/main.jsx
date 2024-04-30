@@ -30,24 +30,24 @@ const router = createBrowserRouter([
       {
         path:"/",
         element:<Home></Home>,
-        loader:()=>fetch('http://localhost:5000/crafts')
+        loader:()=>fetch('https://assigment-10-server-rho.vercel.app/crafts')
       },
       {
         path:"/details/:id",
         element:<ProtectedRoute><ViewDetails></ViewDetails>,</ProtectedRoute>,
-        loader:()=>fetch("http://localhost:5000/crafts")
+        loader:()=>fetch("https://assigment-10-server-rho.vercel.app/crafts")
 
       },
       {
         path:"/allItem",
         element:<AllItem></AllItem>,
-        loader:()=>fetch('http://localhost:5000/allItem')
+        loader:()=>fetch('https://assigment-10-server-rho.vercel.app/allItem')
 
       },
       {
         path:"/allDetails/:id",
         element:<ProtectedRoute><AllDetails></AllDetails></ProtectedRoute>,
-        loader:()=>fetch('http://localhost:5000/allItem')
+        loader:()=>fetch('https://assigment-10-server-rho.vercel.app/allItem')
 
       },
       {
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
       {
         path:"/update/:id",
         element:<ProtectedRoute><UpdateItems></UpdateItems></ProtectedRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/crafts/${params.id}`)
+        loader:({params})=>fetch(`https://assigment-10-server-rho.vercel.app/crafts/${params.id}`)
 
       },
 
