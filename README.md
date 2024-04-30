@@ -1,8 +1,25 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Homemade Trasure
 
-Currently, two official plugins are available:
+ It is basically arts& crafts based related website .where users can see veriation of arts & crafts.From this website user can he/she can   update  or delate their  this chose of art or crafts things.
+# Category Name
+  Jute & wooden Crafts
+ # Project Live Link URL
+ Client Side: 
+ 
+ Server Side:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Features
+
+- Light/dark mode toggle
+- Responsibe For All Device
+-  It's art& crafts category
+- User Authentication
+- User Frendly
+
+
+## npm package
+React Simple-typewriter
+
+React-awosome-revel
