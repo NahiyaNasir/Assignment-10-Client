@@ -6,8 +6,8 @@ import Swal from "sweetalert2";
 import { AuthContext } from "./AuthProvider";
 import { useContext } from "react";
 
-const MyListCard = ({ i ,setItem}) => {
-  // console.log(i);
+const MyListCard = ({ i ,setItem,selected}) => {
+  console.log(selected);
   const { user } = useContext(AuthContext);
   const {
     img,
@@ -65,7 +65,7 @@ const MyListCard = ({ i ,setItem}) => {
         </figure>
         <div className="card-body">
           <h2 className="card-title">{item_name}</h2>
-          <h2 className="card-title">{sub_name}</h2>
+          <h2 className="card-title"> Subcategory Name:{sub_name}</h2>
 
           <div className=" flex justify-between ">
             <p className=" font-mono">${price}</p>

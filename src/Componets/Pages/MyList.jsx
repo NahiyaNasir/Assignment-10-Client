@@ -8,7 +8,7 @@ const MyList = () => {
   // eslint-disable-next-line no-unused-vars
   const [item, setItem ]= useState([]);
   
-
+const [selected,setSelected]=useState('')
   useEffect(() => {
     if(user?.email){
       fetch(`https://assigment-10-server-rho.vercel.app/myList-from-email/${user?.email}`)
@@ -21,6 +21,7 @@ const MyList = () => {
   }, [setItem, user?.email]);
   const handleFilter=(value)=>{
     console.log(value);
+    setSelected(value)
 
   }
   return (
@@ -41,6 +42,7 @@ const MyList = () => {
 
       
         setItem={setItem}
+        selected={selected}
         ></MyListCard>
       ))}
     </div>

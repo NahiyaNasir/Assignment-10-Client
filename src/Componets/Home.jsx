@@ -29,8 +29,10 @@ const Home = () => {
           />
         </span> </h1>
           </div>
-          <div className=" grid lg:grid-cols-3 md:grid-cols-2 mt-6">
+          <div className=" grid lg:grid-cols-3 md:grid-cols-2 mt-6 gap-5">
+            
          {
+       
           loadCrafts.map(card=><CraftsCard key={card._id} card={card}></CraftsCard>)
          }
           </div>

@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 
 const Navbar = () => {
-  const { logOut, user } = useContext(AuthContext);
+  const { logOut, user,loading } = useContext(AuthContext);
   const [theme, setThem] = useState("light");
   useEffect(() => {
     localStorage.setItem("theme", theme);
@@ -182,7 +182,12 @@ const Navbar = () => {
         </div>
       
        
-      
+        {
+  loading? <div className="flex justify-center items-center mt-6">
+  <span className="loading loading-bars loading-lg"></span>;
+</div>
+      :
+         <>
         {user ? (
           <div className=" gap-6 navbar-end">
             <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
@@ -199,6 +204,7 @@ const Navbar = () => {
               Log out
             </button>
           </div>
+          
         ) : (
           <div className="navbar-end gap-3">
             <Link to="/login">
@@ -208,7 +214,20 @@ const Navbar = () => {
               <button className="btn btn-accent"> Sign Up</button>
             </Link>
           </div>
+         
+      
         )}
+         </>
+      }
+    
+
+
+
+
+
+
+
+
        
        
 

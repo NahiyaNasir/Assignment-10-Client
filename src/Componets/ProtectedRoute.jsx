@@ -10,7 +10,7 @@ const ProtectedRoute = ({children}) => {
   const location = useLocation();
   console.log(location.pathname);
   if (loading) {
-    return <div className="flex justify-center items-center">
+    return <div className="flex justify-center items-center mt-6">
       <span className="loading loading-bars loading-lg"></span>;
     </div>
   }
