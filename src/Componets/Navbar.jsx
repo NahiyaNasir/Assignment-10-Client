@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 
 const Navbar = () => {
-  const { logOut, user,loading } = useContext(AuthContext);
+  const { logOut, user } = useContext(AuthContext);
   const [theme, setThem] = useState("light");
   useEffect(() => {
     localStorage.setItem("theme", theme);
@@ -180,66 +180,44 @@ const Navbar = () => {
             </svg>
           </label>
         </div>
-      
-       
-        {
-  loading? <div className="flex justify-center items-center mt-6">
-  <span className="loading loading-bars loading-lg"></span>;
-</div>
-      :
-         <>
-        {user ? (
-          <div className=" gap-6 navbar-end">
-            <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
-              <div className="avatar online">
-                <div className="w-10 rounded-full">
-                  <img src={user.photoURL || " URl NOt Found"} />
+
+        {/* {loading ? (
+          <div className="flex justify-center items-center mt-6">
+            <span className="loading loading-bars loading-lg"></span>;
+          </div>
+        ) : ( */}
+          <>
+            {user ? (
+              <div className=" gap-6 navbar-end">
+                <div
+                  className="tooltip tooltip-bottom"
+                  data-tip={user.displayName}
+                >
+                  <div className="avatar online">
+                    <div className="w-10 rounded-full">
+                      <img src={user.photoURL || " URl NOt Found"} />
+                    </div>
+                  </div>
                 </div>
+
+                <button className="btn bg-[#59C6D2]" onClick={handelSignOut}>
+                  Log out
+                </button>
               </div>
-            
-            </div>
-           
+            ) : (
+              <div className="navbar-end gap-3">
+                <Link to="/login">
+                  <button className="btn btn-accent"> Sign In</button>
+                </Link>
+                <Link to="/register">
+                  <button className="btn btn-accent"> Sign Up</button>
+                </Link>
+              </div>
+            )}
+          </>
+         {/* )}  */}
 
-            <button className="btn bg-[#59C6D2]" onClick={handelSignOut}>
-              Log out
-            </button>
-          </div>
-          
-        ) : (
-          <div className="navbar-end gap-3">
-            <Link to="/login">
-              <button className="btn btn-accent"> Sign In</button>
-            </Link>
-            <Link to="/register">
-              <button className="btn btn-accent"> Sign Up</button>
-            </Link>
-          </div>
-         
-      
-        )}
-         </>
-      }
-    
-
-
-
-
-
-
-
-
-       
-       
-
-        {/* <div className="navbar-end gap-3">
-          <Link to="/login">
-            {" "}
-            <button className="btn btn-accent"> Sign In</button>
-          </Link>
-          <Link to='/register'>
-          <button className="btn btn-accent"> Sign Up</button>
-          </Link>
-        </div> */}
+        
       </div>
     </div>
   );

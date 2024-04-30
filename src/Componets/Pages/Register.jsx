@@ -16,6 +16,7 @@ const Register = () => {
     const photoUrl = form.get("photoUrl");
     const email = form.get("email");
     const password = form.get("password");
+    console.log(name,password,photoUrl,email);
     if (password.length < 6) {
       setRegisterError("password should be at least 6 character");
       return;
