@@ -21,13 +21,13 @@ Discover the beauty of handmade creations with our Arts & Crafts website, your g
 
 
 ## npm package
-React Simple-typewriter
+react Simple-typewriter
 
-React-awosome-revel
+react-awosome-revel
 
-React-icons
+react-icons
 
-React-marque
+react-marque
 
 ## Run Locally
 
