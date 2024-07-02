@@ -5,7 +5,7 @@
 # Category Name
   Jute & wooden Crafts
  # Project Live Link URL
-  FirebaseLink :https://assigment-10-9ef01.web.app/
+https://assigment-10-9ef01.web.app/
  
 
 
