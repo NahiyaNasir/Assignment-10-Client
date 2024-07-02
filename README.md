@@ -1,7 +1,6 @@
 
 # Homemade Trasure
-
- It is basically arts& crafts based related website .where users can see veriation of arts & crafts.From this website user can he/she can   update  or delate their  this chose of art or crafts things.
+Discover the beauty of handmade creations with our Arts & Crafts website, your go-to destination for unique, artisanal pieces. Explore a wide range of  crafted products that spark creativity and inspire your next project. Join our vibrant community of artists and crafters today!
 # Category Name
   Jute & wooden Crafts
  # Project Live Link URL
