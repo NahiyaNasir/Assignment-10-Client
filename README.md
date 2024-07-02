@@ -24,6 +24,10 @@ React Simple-typewriter
 
 React-awosome-revel
 
+React-icons
+
+React-marque
+
 ## Run Locally
 
 Clone the project
